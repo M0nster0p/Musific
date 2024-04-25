@@ -1,18 +1,18 @@
 /*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
+ *  This file is part of Musific (https://github.com/M0nster0p/Musific).
  * 
- * BlackHole is free software: you can redistribute it and/or modify
+ * Musific is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * BlackHole is distributed in the hope that it will be useful,
+ * Musific is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Musific.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Copyright (c) 2021-2022, Wali Ullah Shuvo
  */
@@ -21,7 +21,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:blackhole/Helpers/format.dart';
+import 'package:musific/Helpers/format.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart';
 import 'package:http/io_client.dart';

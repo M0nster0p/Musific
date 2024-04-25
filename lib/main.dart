@@ -1,18 +1,18 @@
 /*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
+ *  This file is part of Musific (https://github.com/M0nster0p/Musific).
  * 
- * BlackHole is free software: you can redistribute it and/or modify
+ * Musific is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * BlackHole is distributed in the hope that it will be useful,
+ * Musific is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Musific.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Copyright (c) 2021-2022, Wali Ullah Shuvo
  */
@@ -21,21 +21,21 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/Helpers/config.dart';
-import 'package:blackhole/Helpers/handle_native.dart';
-import 'package:blackhole/Helpers/route_handler.dart';
-import 'package:blackhole/Screens/About/about.dart';
-import 'package:blackhole/Screens/Home/home.dart';
-import 'package:blackhole/Screens/Library/downloads.dart';
-import 'package:blackhole/Screens/Library/nowplaying.dart';
-import 'package:blackhole/Screens/Library/playlists.dart';
-import 'package:blackhole/Screens/Library/recent.dart';
-import 'package:blackhole/Screens/Login/auth.dart';
-import 'package:blackhole/Screens/Login/pref.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Screens/Settings/setting.dart';
-import 'package:blackhole/Services/audio_service.dart';
-import 'package:blackhole/theme/app_theme.dart';
+import 'package:musific/Helpers/config.dart';
+import 'package:musific/Helpers/handle_native.dart';
+import 'package:musific/Helpers/route_handler.dart';
+import 'package:musific/Screens/About/about.dart';
+import 'package:musific/Screens/Home/home.dart';
+import 'package:musific/Screens/Library/downloads.dart';
+import 'package:musific/Screens/Library/nowplaying.dart';
+import 'package:musific/Screens/Library/playlists.dart';
+import 'package:musific/Screens/Library/recent.dart';
+import 'package:musific/Screens/Login/auth.dart';
+import 'package:musific/Screens/Login/pref.dart';
+import 'package:musific/Screens/Player/audioplayer.dart';
+import 'package:musific/Screens/Settings/setting.dart';
+import 'package:musific/Services/audio_service.dart';
+import 'package:musific/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -51,7 +51,7 @@ Future<void> main() async {
   Paint.enableDithering = true;
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    await Hive.initFlutter('BlackHole');
+    await Hive.initFlutter('Musific');
   } else {
     await Hive.initFlutter();
   }
@@ -89,8 +89,8 @@ Future<void> startService() async {
   final AudioPlayerHandler audioHandler = await AudioService.init(
     builder: () => AudioPlayerHandlerImpl(),
     config: AudioServiceConfig(
-      androidNotificationChannelId: 'com.shadow.blackhole.channel.audio',
-      androidNotificationChannelName: 'BlackHole',
+      androidNotificationChannelId: 'com.musific.channel.audio',
+      androidNotificationChannelName: 'Musific',
       androidNotificationOngoing: true,
       androidNotificationIcon: 'drawable/ic_stat_music_note',
       androidShowNotificationBadge: true,
@@ -110,8 +110,8 @@ Future<void> openHiveBox(String boxName, {bool limit = false}) async {
     File dbFile = File('$dirPath/$boxName.hive');
     File lockFile = File('$dirPath/$boxName.lock');
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      dbFile = File('$dirPath/BlackHole/$boxName.hive');
-      lockFile = File('$dirPath/BlackHole/$boxName.lock');
+      dbFile = File('$dirPath/Musific/$boxName.hive');
+      lockFile = File('$dirPath/Musific/$boxName.lock');
     }
     await dbFile.delete();
     await lockFile.delete();
@@ -229,8 +229,8 @@ class _MyAppState extends State<MyApp> {
     ]);
 
     return MaterialApp(
-      title: 'BlackHole',
-      restorationScopeId: 'blackhole',
+      title: 'Musific',
+      restorationScopeId: 'musific',
       debugShowCheckedModeBanner: false,
       themeMode: AppTheme.themeMode,
       theme: AppTheme.lightTheme(

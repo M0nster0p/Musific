@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shadow.blackhole">
+    package="com.musific">
    <application
-        android:label="BlackHole"
+        android:label="Musific"
         android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -44,7 +44,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="app" android:host="blackhole" android:pathPrefix="/auth" />
+                <data android:scheme="app" android:host="musific" android:pathPrefix="/auth" />
             </intent-filter>
 
             <intent-filter android:autoVerify="true">
